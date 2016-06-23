@@ -1,7 +1,3 @@
-# 10/15/15 
-
-___This homework is due by 8am, on 10/19/15___
-
 ## Objectives
 
 ### Learning Objectives
@@ -43,7 +39,7 @@ After completing this assignment, you be able to effectively use
 1. Use the attached files`items.js` and `index.html` and add it to a new project
 2. Make sure to create a `main.js` file to put your code in
 3. Using the `items` variable, use `array.map()`, `array.reduce()`, `array.forEach`, and `array.filter()` to help you through the following questions.
-4. Using the `innerHTML()` method, place your answers in the correct element in the `index.html` file.
+4. Using `innerHTML`, place your answers in the correct element in the `index.html` file.
 5. Make your `index.html` page look exactly like provided `mockup.png`
 6. Deploy this to GH Pages
 
