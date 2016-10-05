@@ -45,41 +45,44 @@ document.getElementById('answer3').innerHTML = GBP
 console.log(GBP)
 
 // 4. Display a list of all items who are made of wood. \\ 
-var wood = []
-items.filter(function(items){
-	if (items.materials.indexOf('wood') !== -1){
-		wood.push(" " + items.title + " ")
-	}
+var woodItems = items.filter(function(item){
+	return item.materials.indexOf('wood') !== -1
 })
 
-document.getElementById('answer4').innerHTML = wood
+console.log(woodItems)
 
-console.log(wood)
+var woodHTML = "";
+
+woodHTML += "<ul>";
+woodItems.forEach(function(item){
+	woodHTML += "<li>" + item.title + "</li>"
+})
+woodHTML += "</ul>";
+
+document.getElementById('answer4').innerHTML = woodHTML
+
+
 
 // 5. Which items are made of eight or more materials? Display the name, number of items and the items it is made of. \\
 
-var eightMore = items.filter(function(items) {
-	if (items.materials.length >= 8){
-		return true;
-	}
-}).map(function(eight){
-	return {
-		title:eight.title,
-		numofitems:eight.materials.length,
-		type:eight.materials
-	}
+var eightMore = items.filter(function(item) {
+	return item.materials.length >= 8
 })
 
-var listOfWood = " "
+var eightHTML = ""
 
 eightMore.forEach((function(obj) {
-	listOfWood += obj.title + " " + obj.numofitems + " " + obj.type 
-
+	eightHTML += "<h5>" + obj.title + "</h5>"
+	eightHTML += "<ul>"
+	obj.materials.forEach(function(material){
+		eightHTML += "<li>" + material + "</li>"
+	})
+	eightHTML += "</ul>"
 }))
-console.log(listOfWood)
 
 
-document.getElementById('answer5').innerHTML = listOfWood
+
+document.getElementById('answer5').innerHTML = eightHTML
 
 // 6. How many items were made by their sellers? \\
 
