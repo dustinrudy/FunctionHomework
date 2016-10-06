@@ -11,7 +11,7 @@ var avg = sum / items.length
 
 avg.toFixed(2)
 
-document.getElementById('answer1').innerHTML = avg.toFixed(2)
+document.getElementById('answer1').innerHTML = '<p>' + '$' + avg.toFixed(2) + '</p>'
 
 console.log(avg.toFixed(2))
 
@@ -19,32 +19,33 @@ console.log(avg.toFixed(2))
 
 // Question 2: Show me an array of items that cost between $14.00 and $18.00 USD? \\
 
-var filt = []; 
-items.filter(function(item){
-	if (item.price < 18.00 && item.price > 14.00){
-		return filt += item.title + " "
+var range = items.filter(function(item){
+	return item.price < 18.00 && item.price > 14.00
 
-	}
+	})
+
+var answer2HTML = "<ul>"
+range.forEach(function(item){
+	answer2HTML += "<li>" + item.title + "</li>" 
 })
 
-document.getElementById('answer2').innerHTML = filt
+document.getElementById('answer2').innerHTML = answer2HTML
 
-console.log(filt)
+console.log(answer2HTML)
 
 
 // 3. Which item has a "GBP" currency code? Display it's name and price. \\
-var GBP = []
-items.filter(function(item){
-	if (item.currency_code == 'GBP')
-		GBP.push(item.title + " " + "$" + item.price)
+var gbp = items.filter(function(item){
+	return (item.currency_code == 'GBP')
 })
 
-document.getElementById('answer3').innerHTML = GBP
+document.getElementById('answer3').innerHTML = '<p>' + gbp[0].title + '<br />' + '</p>'
 
 
-console.log(GBP)
+console.log(gbp)
 
 // 4. Display a list of all items who are made of wood. \\ 
+
 var woodItems = items.filter(function(item){
 	return item.materials.indexOf('wood') !== -1
 })
