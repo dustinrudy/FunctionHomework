@@ -3,8 +3,8 @@
 // Question 1: What is the average price of all items? \\
 
 var sum = 0;
-items.forEach(function(items){
-  sum +=  Number (items.price)
+items.forEach(function(item){
+  sum +=  Number (item.price)
 })
 
 var avg = sum / items.length 
@@ -20,9 +20,9 @@ console.log(avg.toFixed(2))
 // Question 2: Show me an array of items that cost between $14.00 and $18.00 USD? \\
 
 var filt = []; 
-items.filter(function(items){
-	if (items.price < 18.00 && items.price > 14.00){
-		return filt += items.title + " "
+items.filter(function(item){
+	if (item.price < 18.00 && item.price > 14.00){
+		return filt += item.title + " "
 
 	}
 })
@@ -34,9 +34,9 @@ console.log(filt)
 
 // 3. Which item has a "GBP" currency code? Display it's name and price. \\
 var GBP = []
-items.filter(function(items){
-	if (items.currency_code == 'GBP')
-		GBP.push(items.title + " " + "$" + items.price)
+items.filter(function(item){
+	if (item.currency_code == 'GBP')
+		GBP.push(item.title + " " + "$" + item.price)
 })
 
 document.getElementById('answer3').innerHTML = GBP
