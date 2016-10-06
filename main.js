@@ -88,12 +88,10 @@ document.getElementById('answer5').innerHTML = eightHTML
 // 6. How many items were made by their sellers? \\
 
 var madeBySellers = items.filter(function(items){
-	if(items.who_made === "i_did") {
-		return true
-	}
+	return items.who_made === "i_did" 
 })
 
-document.getElementById('answer6').innerHTML = madeBySellers.length
+document.getElementById('answer6').innerHTML = '<p>' + 'There were' + ' ' + madeBySellers.length + ' ' + 'made by their sellers.' + '</p>'
 
 
 
